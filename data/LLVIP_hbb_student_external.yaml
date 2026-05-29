@@ -1,0 +1,13 @@
+# External LLVIP student dataset in YOLO HBB label format
+# Update 'path' if your dataset is stored elsewhere.
+path: ../datasets/LLVIP_hbb
+
+train: images/train
+val: images/val
+test: images/test
+
+nc: 1
+ch: 6
+
+names:
+  0: person

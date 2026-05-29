@@ -1,0 +1,17 @@
+GNU AFFERO GENERAL PUBLIC LICENSE
+Version 3
+
+This cleaned repository is derived from a modified Ultralytics-based codebase.
+The original project metadata in `pyproject.toml` declares the software under
+AGPL-3.0, and this cleaned package preserves that license designation.
+
+For practical repository use, treat this project as AGPL-3.0-licensed unless you
+have a separate written grant from the copyright holders.
+
+Summary:
+- Upstream framework base: Ultralytics YOLO
+- License designation preserved here: AGPL-3.0
+- Local SEMD modifications are distributed within the same cleaned package
+
+If you plan to publish this repository externally, review the original authorship
+and licensing obligations before release.

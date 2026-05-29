@@ -1,0 +1,17 @@
+# External DroneVehicle RGB-IR student dataset in YOLO OBB label format.
+# Change this path to your local dataset root.
+path: ../datasets/DroneVehicle_rgbir_obb
+
+train: images/train
+val: images/val
+test: images/test
+
+nc: 5
+ch: 6
+
+names:
+  0: car
+  1: freight_car
+  2: truck
+  3: bus
+  4: van

@@ -1,0 +1,202 @@
+# Ultralytics YOLO 🚀, AGPL-3.0 license
+# Default training settings and hyperparameters for medium-augmentation COCO training
+
+task: detect  # (str) YOLO task, i.e. detect, segment, classify, pose
+mode: train  # (str) YOLO mode, i.e. train, val, predict, export, track, benchmark
+ch: 6
+# Train settings -------------------------------------------------------------------------------------------------------
+model:  # (str, optional) path to model file, i.e. yolov8n.pt, yolov8n.yaml
+data:  # (str, optional) path to data file, i.e. coco128.yaml
+epochs: 10  # (int) number of epochs to train for
+time:  # (float, optional) number of hours to train for, overrides epochs if supplied
+patience: 50  # (int) epochs to wait for no observable improvement for early stopping of training
+batch: 8  # (int) number of images per batch (-1 for AutoBatch)
+imgsz: 640  # (int | list) input images size as int for train and val modes, or list[w,h] for predict and export modes
+save: True  # (bool) save train checkpoints and predict results
+save_period: -1 # (int) Save checkpoint every x epochs (disabled if < 1)
+cache: False  # (bool) True/ram, disk or False. Use cache for data loading
+device: 0 # (int | str | list, optional) device to run on, i.e. cuda device=0 or device=0,1,2,3 or device=cpu
+workers: 4  # (int) number of worker threads for data loading (per RANK if DDP)
+project:  # (str, optional) project name
+name:  # (str, optional) experiment name, results saved to 'project/name' directory
+exist_ok: False  # (bool) whether to overwrite existing experiment
+pretrained: True  # (bool | str) whether to use a pretrained model (bool) or a model to load weights from (str)
+optimizer: auto  # (str) optimizer to use, choices=[SGD, Adam, Adamax, AdamW, NAdam, RAdam, RMSProp, auto]
+verbose: True  # (bool) whether to print verbose output
+seed: 0  # (int) random seed for reproducibility
+deterministic: True  # (bool) whether to enable deterministic mode
+single_cls: False  # (bool) train multi-class data as single-class
+rect: False  # (bool) rectangular training if mode='train' or rectangular validation if mode='val'
+cos_lr: False  # (bool) use cosine learning rate scheduler
+close_mosaic: 10  # (int) disable mosaic augmentation for final epochs (0 to disable)
+augment_start_epoch: 0  # (int) enable train augmentations starting from this epoch, 0 enables them from epoch 1
+train_augment_active: False  # (bool) internal flag tracking whether train augmentations are currently enabled
+resume: False  # (bool) resume training from last checkpoint
+amp: True # (bool) Automatic Mixed Precision (AMP) training, choices=[True, False], True runs AMP check
+fraction: 1.0  # (float) dataset fraction to train on (default is 1.0, all images in train set)
+profile: False  # (bool) profile ONNX and TensorRT speeds during training for loggers
+freeze: None  # (int | list, optional) freeze first n layers, or freeze list of layer indices during training
+multi_scale: False   # (bool) Whether to use multi-scale during training
+# Segmentation
+overlap_mask: True  # (bool) masks should overlap during training (segment train only)
+mask_ratio: 4  # (int) mask downsample ratio (segment train only)
+# Classification
+dropout: 0.0  # (float) use dropout regularization (classify train only)
+
+# Val/Test settings ----------------------------------------------------------------------------------------------------
+val: True  # (bool) validate/test during training
+split: val  # (str) dataset split to use for validation, i.e. 'val', 'test' or 'train'
+save_json: False  # (bool) save results to JSON file
+save_hybrid: False  # (bool) save hybrid version of labels (labels + additional predictions)
+conf: 0.25     # (float, optional) object confidence threshold for detection (default 0.25 predict, 0.001 val)
+iou: 0.7 # (float) intersection over union (IoU) threshold for NMS
+max_det: 300  # (int) maximum number of detections per image
+half: False  # (bool) use half precision (FP16)
+dnn: False  # (bool) use OpenCV DNN for ONNX inference
+plots: True  # (bool) save plots and images during train/val
+
+# Predict settings -----------------------------------------------------------------------------------------------------
+source:  # (str, optional) source directory for images or videos
+vid_stride: 1  # (int) video frame-rate stride
+stream_buffer: False  # (bool) buffer all streaming frames (True) or return the most recent frame (False)
+visualize: False  # (bool) visualize model features
+augment: False  # (bool) apply image augmentation to prediction sources; in train mode this is the master train-augmentation switch
+agnostic_nms: False  # (bool) class-agnostic NMS
+classes:  # (int | list[int], optional) filter results by class, i.e. classes=0, or classes=[0,2,3]
+retina_masks: False  # (bool) use high-resolution segmentation masks
+embed:  # (list[int], optional) return feature vectors/embeddings from given layers
+
+# Visualize settings ---------------------------------------------------------------------------------------------------
+show: False  # (bool) show predicted images and videos if environment allows
+save_frames: False  # (bool) save predicted individual video frames
+save_txt: False  # (bool) save results as .txt file
+save_conf: False  # (bool) save results with confidence scores
+save_crop: False  # (bool) save cropped images with results
+show_labels: True  # (bool) show prediction labels, i.e. 'person'
+show_conf: True  # (bool) show prediction confidence, i.e. '0.99'
+show_boxes: True  # (bool) show prediction boxes
+line_width:   # (int, optional) line width of the bounding boxes. Scaled to image size if None.
+
+# Export settings ------------------------------------------------------------------------------------------------------
+format: torchscript  # (str) format to export to, choices at https://docs.ultralytics.com/modes/export/#export-formats
+keras: False  # (bool) use Kera=s
+optimize: False  # (bool) TorchScript: optimize for mobile
+int8: False  # (bool) CoreML/TF INT8 quantization
+dynamic: False  # (bool) ONNX/TF/TensorRT: dynamic axes
+simplify: False  # (bool) ONNX: simplify model
+opset:  # (int, optional) ONNX: opset version
+workspace: 4  # (int) TensorRT: workspace size (GB)
+nms: False  # (bool) CoreML: add NMS
+
+# Hyperparameters ------------------------------------------------------------------------------------------------------
+lr0: 0.01  # (float) initial learning rate (i.e. SGD=1E-2, Adam=1E-3)
+lrf: 0.01  # (float) final learning rate (lr0 * lrf)
+momentum: 0.937  # (float) SGD momentum/Adam beta1
+weight_decay: 0.0005  # (float) optimizer weight decay 5e-4
+warmup_epochs: 3.0  # (float) warmup epochs (fractions ok)
+warmup_momentum: 0.8  # (float) warmup initial momentum
+warmup_bias_lr: 0.1  # (float) warmup initial bias lr
+box: 7.5  # (float) box loss gain
+cls: 0.5  # (float) cls loss gain (scale with pixels)
+dfl: 4.0  # (float) dfl loss gain
+pose: 12.0  # (float) pose loss gain
+kobj: 1.0  # (float) keypoint obj loss gain
+label_smoothing: 0.0  # (float) label smoothing (fraction)
+nbs: 64  # (int) nominal batch size
+hsv_h: 0.015  # (float) image HSV-Hue augmentation (fraction)
+hsv_s: 0.7  # (float) image HSV-Saturation augmentation (fraction)
+hsv_v: 0.4  # (float) image HSV-Value augmentation (fraction)
+degrees: 0.0  # (float) image rotation (+/- deg)
+translate: 0.1  # (float) image translation (+/- fraction)
+scale: 0.5  # (float) image scale (+/- gain)
+shear: 0.0  # (float) image shear (+/- deg)
+perspective: 0.0  # (float) image perspective (+/- fraction), range 0-0.001
+flipud: 0.0  # (float) image flip up-down (probability)
+fliplr: 0.5  # (float) image flip left-right (probability)
+mosaic: 1.0  # (float) image mosaic (probability)
+mixup: 0.0  # (float) image mixup (probability)
+copy_paste: 0.0  # (float) segment copy-paste (probability)
+auto_augment: randaugment  # (str) auto augmentation policy for classification (randaugment, autoaugment, augmix)
+erasing: 0.4  # (float) probability of random erasing during classification training (0-1)
+crop_fraction: 1.0  # (float) image crop fraction for classification evaluation/inference (0-1)
+
+# Custom config.yaml ---------------------------------------------------------------------------------------------------
+cfg:  # (str, optional) for overriding defaults.yaml
+
+# Tracker settings ------------------------------------------------------------------------------------------------------
+tracker: botsort.yaml  # (str) tracker type, choices=[botsort.yaml, bytetrack.yaml]
+distill_type : False
+Distillation:
+loss_type:
+distill_weight: 0.0
+online: False
+Teacher_Model_RGB_Path:
+Teacher_Model_IR_Path:
+Teacher_Model_Path:
+distill_student_rgb_layers:
+distill_student_ir_layers:
+distill_teacher_rgb_layers:
+distill_teacher_ir_layers:
+distill_student_rgb_channels:
+distill_student_ir_channels:
+distill_student_fusion_layers:
+distill_student_fusion_channels:
+distill_teacher_rgb_channels:
+distill_teacher_ir_channels:
+distill_disable_all: False
+distill_cross_attention: True
+distill_normal_distillation: True
+distill_only_normal: False
+distill_disable_gate_kd: False
+distill_disable_pseudo_fusion_kd: False
+distill_head_kd_policy: full
+distill_epoch_scale_mode: legacy_cosine
+distill_epoch_scale_start: 1.0
+distill_epoch_scale_end: 0.1
+distill_epoch_scale_decay_start: 0
+distill_epoch_scale_decay_end: -1
+distill_zero_after_epoch: -1
+distill_schedule_enable: False
+distill_mid_kd_start_epoch: -1
+distill_mid_kd_policy: "none"
+distill_gate_kd_mode: legacy
+distill_gate_kd_weight: 1.0
+distill_gate_kd_temperature: 1.0
+distill_gate_kd_mask_mode: "none"
+distill_gate_kd_conf_thr: 0.25
+distill_student_entropy_weight_enable: False
+distill_student_entropy_weight_mode: fixed
+distill_student_entropy_weight_formula: fixed_boost
+distill_student_entropy_weight_min: 0.5
+distill_student_entropy_weight_max: 1.5
+distill_student_entropy_weight_beta: 0.5
+distill_student_entropy_weight_beta_pos: 1.0
+distill_student_entropy_weight_beta_neg: 0.5
+distill_student_entropy_weight_tau: 0.5
+distill_student_entropy_weight_normalize_mean: False
+distill_student_entropy_weight_detach: True
+distill_student_entropy_weight_target: gate
+distill_student_entropy_weight_reg: 0.0
+distill_late_kd_start_epoch: -1
+distill_late_kd_policy: "none"
+distill_stage2_cls_only: False
+distill_resume_ckpt:
+freeze_backbone_fusion: False
+train_neck_head_only: False
+stage2_lr_mult: 0.1
+stage2_epochs: 25
+stage2_disable_early_stop: True
+distill_cls_kd_weight: 0.05
+distill_kd_temperature: 2.0
+teacher_conf_thr: 0.45
+teacher_entropy_thr: 0.35
+teacher_jsd_thr: 0.10
+audit_mode: False
+audit_disable_early_stop: True
+audit_ckpt_interval: 5
+audit_probe_epochs: 10
+audit_probe_fractions: 0.2,0.4,0.6,0.8
+audit_probes: continue,kd_off,normal_only,cross_off,lr_x0.3
+audit_log_every_n: 200
+audit_output_name: headroom_audit
+audit_eval_split: val

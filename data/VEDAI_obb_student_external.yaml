@@ -1,0 +1,23 @@
+# External VEDAI student dataset in YOLO OBB label format.
+# Recommended output root from tools/convert_vedai_to_yolo_obb.py:
+#   ../datasets/VEDAI_obb
+# Update 'path' if your dataset is stored elsewhere.
+path: ../datasets/VEDAI_obb
+
+train: images/train
+val: images/val
+test: images/test
+
+nc: 9
+ch: 6
+
+names:
+  0: plane
+  1: boat
+  2: camping_car
+  3: car
+  4: pickup
+  5: tractor
+  6: truck
+  7: van
+  8: other

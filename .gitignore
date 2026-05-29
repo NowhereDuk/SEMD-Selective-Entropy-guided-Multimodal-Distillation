@@ -1,0 +1,41 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+
+logs/
+outputs/
+wandb/
+tensorboard/
+*.log
+
+runs/*
+!runs/README.md
+
+# External datasets and caches
+data/images/
+data/labels/
+datasets/
+external_results/
+DroneVehicle*/
+*.cache
+
+# Large weight artifacts
+weight/**/*.pt
+weights/**/*.pt
+*.pth
+*.onnx
+*.engine
+*.zip
+*.tar
+*.tar.gz
+
+# Keep documentation and configuration placeholders
+!weight/**/README.md
+!data/*.yaml
+!model_yaml_obb/*.yaml
