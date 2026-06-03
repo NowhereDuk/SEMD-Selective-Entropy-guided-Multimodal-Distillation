@@ -28,8 +28,8 @@ Provided formats:
   for SEMD RGB-IR student training.
 - `annotations/dronevehicle_refined_coco/`: modality-specific cleaned COCO JSON
   annotations derived from `/home/disk1/DataSets/DroneVehicle_adjust/Annotation_cleaned`.
-- `annotations/dronevehicle_refined_yolo_obb/annotation_changes.csv`: file-level
-  summary of changes from the original DroneVehicle annotations.
+- `annotations/dronevehicle_refined_yolo_obb/annotation_changes.csv`: object-level
+  original-to-refined change list aligned with Table A2.
 
 The YOLO-OBB class mapping is:
 
@@ -119,10 +119,10 @@ test:  23
 total: 66
 ```
 
-File-level change summary:
+Object-level change list:
 
 ```text
-annotation_changes.csv rows: 24,144
+annotation_changes.csv rows: 175,386
 ```
 
 ## Citation

@@ -81,7 +81,7 @@ Provided annotation artifacts:
 ```text
 annotations/dronevehicle_refined_yolo_obb/labels/        # shared YOLO-OBB labels for SEMD
 annotations/dronevehicle_refined_coco/                   # cleaned modality-specific COCO JSON
-annotations/dronevehicle_refined_yolo_obb/annotation_changes.csv
+annotations/dronevehicle_refined_yolo_obb/annotation_changes.csv  # object-level original-to-refined changes
 DATASET.md
 CHANGELOG_ANNOTATIONS.md
 ```

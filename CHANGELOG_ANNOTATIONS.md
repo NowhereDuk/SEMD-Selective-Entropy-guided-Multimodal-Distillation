@@ -1,7 +1,7 @@
 # DroneVehicle Annotation Changelog
 
 This file summarizes the SEMD refined DroneVehicle annotation release. The
-machine-readable file-level change list is:
+machine-readable object-level original-to-refined change list is:
 
 ```text
 annotations/dronevehicle_refined_yolo_obb/annotation_changes.csv
@@ -17,21 +17,22 @@ The refined annotations are derived from:
 
 - YOLO-OBB labels: `annotations/dronevehicle_refined_yolo_obb/labels/`
 - Cleaned COCO JSON: `annotations/dronevehicle_refined_coco/`
-- File-level change CSV: `annotations/dronevehicle_refined_yolo_obb/annotation_changes.csv`
+- Object-level change CSV: `annotations/dronevehicle_refined_yolo_obb/annotation_changes.csv`
 - Cleaning summary JSON: `annotations/dronevehicle_refined_coco/cleaning_summary.json`
 - Change summary JSON: `annotations/dronevehicle_refined_yolo_obb/change_summary.json`
 
-## File-Level Change List
+## Object-Level Change List
 
-`annotation_changes.csv` uses one row per changed image file:
+`annotation_changes.csv` uses one row per detected annotation change and keeps
+the fields reported in Table A2:
 
 ```text
-split,image_id,label_file,modalities,added,removed,modified,classes_affected,change_types,verification_statuses,note
+change_id,split,image_id,modality,object_id,original_category,refined_category,original_obb,refined_obb,change_type,match_iou,match_confidence,verification_status
 ```
 
-The CSV has 24,144 data rows. It is aggregated from the instance-level cleaning
-records and intentionally avoids shipping the larger per-instance diff by
-default.
+The CSV has 175,386 data rows. It is exported from the full object-level
+cleaning records while omitting auxiliary internal columns not listed in Table
+A2.
 
 ## Label Statistics
 
@@ -50,11 +51,11 @@ annotations/dronevehicle_refined_yolo_obb/label_stats.json
 
 ## Regeneration
 
-To regenerate the file-level CSV from the instance-level source on the release
+To regenerate the object-level CSV from the full cleaning source on the release
 machine:
 
 ```bash
-python tools/summarize_dronevehicle_annotation_changes.py \
+python tools/export_dronevehicle_annotation_changes.py \
   --input /home/disk1/DataSets/DroneVehicle_adjust/Annotation_cleaned/change_list_from_original/change_list.csv \
   --output annotations/dronevehicle_refined_yolo_obb/annotation_changes.csv
 ```

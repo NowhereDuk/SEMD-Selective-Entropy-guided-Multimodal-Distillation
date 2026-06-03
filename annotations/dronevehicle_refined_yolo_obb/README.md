@@ -15,6 +15,13 @@ change_summary.json
 label_stats.json
 ```
 
+`annotation_changes.csv` is the object-level original-to-refined change list.
+It has one row per detected annotation change and uses the Table A2 fields:
+
+```text
+change_id,split,image_id,modality,object_id,original_category,refined_category,original_obb,refined_obb,change_type,match_iou,match_confidence,verification_status
+```
+
 Each label row has normalized polygon coordinates:
 
 ```text
