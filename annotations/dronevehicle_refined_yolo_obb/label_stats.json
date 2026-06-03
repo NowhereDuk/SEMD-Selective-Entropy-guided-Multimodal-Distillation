@@ -1,0 +1,63 @@
+{
+  "splits": {
+    "test": {
+      "class_counts": {
+        "bus": 4476,
+        "car": 133484,
+        "freight_car": 3811,
+        "truck": 10651,
+        "van": 7031
+      },
+      "empty_files": 23,
+      "images": {
+        "count_match": true,
+        "ir_images": 8980,
+        "rgb_images": 8980,
+        "stem_match": true
+      },
+      "label_files": 8980,
+      "objects": 159453
+    },
+    "train": {
+      "class_counts": {
+        "bus": 11330,
+        "car": 264094,
+        "freight_car": 9738,
+        "truck": 17619,
+        "van": 13241
+      },
+      "empty_files": 41,
+      "images": {
+        "count_match": true,
+        "ir_images": 17990,
+        "rgb_images": 17990,
+        "stem_match": true
+      },
+      "label_files": 17990,
+      "objects": 316022
+    },
+    "val": {
+      "class_counts": {
+        "bus": 788,
+        "car": 20151,
+        "freight_car": 1017,
+        "truck": 1504,
+        "van": 1017
+      },
+      "empty_files": 2,
+      "images": {
+        "count_match": true,
+        "ir_images": 1469,
+        "rgb_images": 1469,
+        "stem_match": true
+      },
+      "label_files": 1469,
+      "objects": 24477
+    }
+  },
+  "total": {
+    "empty_files": 66,
+    "label_files": 28439,
+    "objects": 499952
+  }
+}

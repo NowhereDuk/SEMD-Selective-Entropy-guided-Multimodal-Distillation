@@ -1,0 +1,56 @@
+{
+  "DV_test_ir_basename.json": {
+    "images": 8958,
+    "annotations_in": 159493,
+    "annotations_out": 159491,
+    "clipped_bbox": 22102,
+    "clipped_segmentation": 22102,
+    "dropped_invalid_bbox": 2,
+    "dropped_missing_image": 0
+  },
+  "DV_test_rgb_basename.json": {
+    "images": 8731,
+    "annotations_in": 143170,
+    "annotations_out": 143169,
+    "clipped_bbox": 18842,
+    "clipped_segmentation": 18842,
+    "dropped_invalid_bbox": 1,
+    "dropped_missing_image": 0
+  },
+  "DV_train_ir_basename.json": {
+    "images": 17950,
+    "annotations_in": 316089,
+    "annotations_out": 316088,
+    "clipped_bbox": 44455,
+    "clipped_segmentation": 44455,
+    "dropped_invalid_bbox": 1,
+    "dropped_missing_image": 0
+  },
+  "DV_train_rgb_basename.json": {
+    "images": 17472,
+    "annotations_in": 286444,
+    "annotations_out": 286443,
+    "clipped_bbox": 38116,
+    "clipped_segmentation": 38116,
+    "dropped_invalid_bbox": 1,
+    "dropped_missing_image": 0
+  },
+  "DV_val_ir_basename.json": {
+    "images": 1467,
+    "annotations_in": 24478,
+    "annotations_out": 24478,
+    "clipped_bbox": 2936,
+    "clipped_segmentation": 2936,
+    "dropped_invalid_bbox": 0,
+    "dropped_missing_image": 0
+  },
+  "DV_val_rgb_basename.json": {
+    "images": 1442,
+    "annotations_in": 22429,
+    "annotations_out": 22429,
+    "clipped_bbox": 2164,
+    "clipped_segmentation": 2164,
+    "dropped_invalid_bbox": 0,
+    "dropped_missing_image": 0
+  }
+}

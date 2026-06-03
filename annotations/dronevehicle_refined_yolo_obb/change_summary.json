@@ -1,0 +1,269 @@
+{
+  "inputs": [
+    {
+      "split": "train",
+      "modality": "RGB",
+      "original": "/home/disk1/DataSets/DroneVehicle/Annotation/DV_train.json",
+      "refined": "/home/disk1/DataSets/DroneVehicle_adjust/Annotation_cleaned/DV_train_rgb_basename.json"
+    },
+    {
+      "split": "train",
+      "modality": "IR",
+      "original": "/home/disk1/DataSets/DroneVehicle/Annotation/DV_train_r.json",
+      "refined": "/home/disk1/DataSets/DroneVehicle_adjust/Annotation_cleaned/DV_train_ir_basename.json"
+    },
+    {
+      "split": "val",
+      "modality": "RGB",
+      "original": "/home/disk1/DataSets/DroneVehicle/Annotation/DV_val.json",
+      "refined": "/home/disk1/DataSets/DroneVehicle_adjust/Annotation_cleaned/DV_val_rgb_basename.json"
+    },
+    {
+      "split": "val",
+      "modality": "IR",
+      "original": "/home/disk1/DataSets/DroneVehicle/Annotation/DV_val_r.json",
+      "refined": "/home/disk1/DataSets/DroneVehicle_adjust/Annotation_cleaned/DV_val_ir_basename.json"
+    },
+    {
+      "split": "test",
+      "modality": "RGB",
+      "original": "/home/disk1/DataSets/DroneVehicle/Annotation/DV_test.json",
+      "refined": "/home/disk1/DataSets/DroneVehicle_adjust/Annotation_cleaned/DV_test_rgb_basename.json"
+    },
+    {
+      "split": "test",
+      "modality": "IR",
+      "original": "/home/disk1/DataSets/DroneVehicle/Annotation/DV_test_r.json",
+      "refined": "/home/disk1/DataSets/DroneVehicle_adjust/Annotation_cleaned/DV_test_ir_basename.json"
+    }
+  ],
+  "thresholds": {
+    "high_confidence_iou": 0.9,
+    "low_confidence_min_iou": 0.5
+  },
+  "pairs": {
+    "train_RGB": {
+      "original_images": 17990,
+      "refined_images": 17472,
+      "original_annotations": 286793,
+      "refined_annotations": 286443,
+      "rows": 51491,
+      "change_type_counts": {
+        "category_correction+OBB_adjustment": 1435,
+        "category_correction": 10422,
+        "OBB_adjustment": 34368,
+        "removal": 2808,
+        "addition": 2458
+      },
+      "match_confidence_counts": {
+        "low": 28865,
+        "high": 17360,
+        "unmatched": 5266
+      },
+      "verification_status_counts": {
+        "needs_review": 34131,
+        "auto_high_confidence": 17360
+      },
+      "matched_exact_total": 248182,
+      "matched_iou_high_total": 6938,
+      "matched_iou_low_total": 28865,
+      "unmatched_original_total": 2808,
+      "unmatched_refined_total": 2458
+    },
+    "train_IR": {
+      "original_images": 17990,
+      "refined_images": 17950,
+      "original_annotations": 316411,
+      "refined_annotations": 316088,
+      "rows": 58875,
+      "change_type_counts": {
+        "category_correction+OBB_adjustment": 1562,
+        "category_correction": 10835,
+        "OBB_adjustment": 39791,
+        "addition": 3182,
+        "removal": 3505
+      },
+      "match_confidence_counts": {
+        "low": 33208,
+        "high": 18980,
+        "unmatched": 6687
+      },
+      "verification_status_counts": {
+        "needs_review": 39895,
+        "auto_high_confidence": 18980
+      },
+      "matched_exact_total": 271553,
+      "matched_iou_high_total": 8145,
+      "matched_iou_low_total": 33208,
+      "unmatched_original_total": 3505,
+      "unmatched_refined_total": 3182
+    },
+    "val_RGB": {
+      "original_images": 1469,
+      "refined_images": 1442,
+      "original_annotations": 22462,
+      "refined_annotations": 22429,
+      "rows": 4024,
+      "change_type_counts": {
+        "OBB_adjustment": 2669,
+        "addition": 248,
+        "category_correction": 695,
+        "removal": 281,
+        "category_correction+OBB_adjustment": 131
+      },
+      "match_confidence_counts": {
+        "high": 1292,
+        "low": 2203,
+        "unmatched": 529
+      },
+      "verification_status_counts": {
+        "auto_high_confidence": 1292,
+        "needs_review": 2732
+      },
+      "matched_exact_total": 19381,
+      "matched_iou_high_total": 597,
+      "matched_iou_low_total": 2203,
+      "unmatched_original_total": 281,
+      "unmatched_refined_total": 248
+    },
+    "val_IR": {
+      "original_images": 1469,
+      "refined_images": 1467,
+      "original_annotations": 24490,
+      "refined_annotations": 24478,
+      "rows": 4441,
+      "change_type_counts": {
+        "category_correction": 655,
+        "OBB_adjustment": 3053,
+        "removal": 310,
+        "addition": 298,
+        "category_correction+OBB_adjustment": 125
+      },
+      "match_confidence_counts": {
+        "high": 1356,
+        "low": 2477,
+        "unmatched": 608
+      },
+      "verification_status_counts": {
+        "auto_high_confidence": 1356,
+        "needs_review": 3085
+      },
+      "matched_exact_total": 21002,
+      "matched_iou_high_total": 701,
+      "matched_iou_low_total": 2477,
+      "unmatched_original_total": 310,
+      "unmatched_refined_total": 298
+    },
+    "test_RGB": {
+      "original_images": 8980,
+      "refined_images": 8731,
+      "original_annotations": 143315,
+      "refined_annotations": 143169,
+      "rows": 25996,
+      "change_type_counts": {
+        "OBB_adjustment": 16827,
+        "category_correction": 5790,
+        "category_correction+OBB_adjustment": 841,
+        "removal": 1342,
+        "addition": 1196
+      },
+      "match_confidence_counts": {
+        "low": 14181,
+        "high": 9277,
+        "unmatched": 2538
+      },
+      "verification_status_counts": {
+        "needs_review": 16719,
+        "auto_high_confidence": 9277
+      },
+      "matched_exact_total": 124305,
+      "matched_iou_high_total": 3487,
+      "matched_iou_low_total": 14181,
+      "unmatched_original_total": 1342,
+      "unmatched_refined_total": 1196
+    },
+    "test_IR": {
+      "original_images": 8980,
+      "refined_images": 8958,
+      "original_annotations": 159616,
+      "refined_annotations": 159491,
+      "rows": 30559,
+      "change_type_counts": {
+        "OBB_adjustment": 19569,
+        "category_correction": 6698,
+        "category_correction+OBB_adjustment": 1059,
+        "removal": 1679,
+        "addition": 1554
+      },
+      "match_confidence_counts": {
+        "low": 16441,
+        "high": 10885,
+        "unmatched": 3233
+      },
+      "verification_status_counts": {
+        "needs_review": 19674,
+        "auto_high_confidence": 10885
+      },
+      "matched_exact_total": 137309,
+      "matched_iou_high_total": 4187,
+      "matched_iou_low_total": 16441,
+      "unmatched_original_total": 1679,
+      "unmatched_refined_total": 1554
+    }
+  },
+  "total_rows": 175386,
+  "change_type_counts": {
+    "category_correction+OBB_adjustment": 5153,
+    "category_correction": 35095,
+    "OBB_adjustment": 116277,
+    "removal": 9925,
+    "addition": 8936
+  },
+  "match_confidence_counts": {
+    "low": 97375,
+    "high": 59150,
+    "unmatched": 18861
+  },
+  "verification_status_counts": {
+    "needs_review": 116236,
+    "auto_high_confidence": 59150
+  },
+  "category_pair_counts": {
+    "car->van": 21480,
+    "freight_car->truck": 5837,
+    "van->freight_car": 3258,
+    "freight_car->van": 2266,
+    "van->car": 2219,
+    "van->truck": 1871,
+    "truck->freight_car": 1063,
+    "car->truck": 804,
+    "freight_car->car": 442,
+    "truck->car": 302,
+    "car->freight_car": 219,
+    "truck->van": 198,
+    "bus->van": 106,
+    "freight_car->bus": 70,
+    "car->bus": 70,
+    "bus->truck": 16,
+    "van->bus": 12,
+    "truck->bus": 8,
+    "bus->freight_car": 7
+  },
+  "spot_checks": {
+    "test_IR_07913": {
+      "rows": 63,
+      "van_to_car_rows": 63,
+      "change_type_counts": {
+        "category_correction": 63
+      },
+      "match_confidence_counts": {
+        "high": 63
+      }
+    }
+  },
+  "outputs": {
+    "csv": "/home/disk1/DataSets/DroneVehicle_adjust/Annotation_cleaned/change_list_from_original/change_list.csv",
+    "jsonl": "/home/disk1/DataSets/DroneVehicle_adjust/Annotation_cleaned/change_list_from_original/change_list.jsonl",
+    "summary": "/home/disk1/DataSets/DroneVehicle_adjust/Annotation_cleaned/change_list_from_original/change_summary.json"
+  }
+}

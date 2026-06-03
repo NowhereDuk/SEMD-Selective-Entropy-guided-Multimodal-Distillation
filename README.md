@@ -66,6 +66,51 @@ class x1 y1 x2 y2 x3 y3 x4 y4
 
 VEDAI and LLVIP conversion helpers are provided in `tools/`.
 
+## DroneVehicle Refined Annotations
+
+This release includes SEMD refined annotations for DroneVehicle, but it does
+not redistribute the original DroneVehicle images.
+
+Use the official DroneVehicle page to obtain the original RGB-IR image pairs:
+
+- https://github.com/VisDrone/DroneVehicle
+- https://arxiv.org/abs/2003.02437
+
+Provided annotation artifacts:
+
+```text
+annotations/dronevehicle_refined_yolo_obb/labels/        # shared YOLO-OBB labels for SEMD
+annotations/dronevehicle_refined_coco/                   # cleaned modality-specific COCO JSON
+annotations/dronevehicle_refined_yolo_obb/annotation_changes.csv
+DATASET.md
+CHANGELOG_ANNOTATIONS.md
+```
+
+The refined annotations are built on top of DroneVehicle. Please cite the
+original DroneVehicle paper when using this annotation release.
+
+Install the refined YOLO-OBB labels into a local DroneVehicle-style dataset:
+
+```bash
+python tools/prepare_dronevehicle_refined_annotations.py \
+  --dataset-root datasets/DroneVehicle_rgbir_obb \
+  --overwrite \
+  --write-yaml data/DroneVehicle_refined_obb.yaml
+```
+
+Validate the label format and, if local images are available, RGB/IR image
+counts:
+
+```bash
+python tools/check_dronevehicle_refined_annotations.py \
+  --label-root datasets/DroneVehicle_rgbir_obb/labels \
+  --dataset-root datasets/DroneVehicle_rgbir_obb \
+  --allow-empty
+```
+
+See `DATASET.md` for dataset attribution, release statistics, and citation
+details.
+
 ## Teacher Checkpoints
 
 Teacher checkpoints are not distributed with this repository. Place them at:
@@ -136,6 +181,7 @@ preference maps, and student gate entropy figures.
 ```text
 .
 ├── data/                 # Dataset YAML templates
+├── annotations/          # SEMD refined DroneVehicle annotations
 ├── docs/                 # Method summary and runnable commands
 ├── model_yaml_obb/       # SEMD OBB and teacher model definitions
 ├── scripts/              # Training wrappers and qualitative visualization
@@ -155,3 +201,19 @@ redistribution or commercial use.
 
 If this repository helps your research, please cite the SEMD paper or project
 once the formal citation is available.
+
+If you use the DroneVehicle annotations, also cite the original DroneVehicle
+paper:
+
+```bibtex
+@ARTICLE{sun2020drone,
+  title={Drone-based RGB-Infrared Cross-Modality Vehicle Detection via Uncertainty-Aware Learning},
+  author={Sun, Yiming and Cao, Bing and Zhu, Pengfei and Hu, Qinghua},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  year={2022},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/TCSVT.2022.3168279}
+}
+```
